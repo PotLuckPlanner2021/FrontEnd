@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Rubik+Mono+One&display=swap");
+/*Main font*/
+/* smaller one
+font-family: 'Roboto Condensed', sans-serif;
+
+Bold one
+font-family: 'Rubik Mono One', sans-serif; */
+
+body {
+  margin: 0;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Home Page*/
+.homeImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tag {
+  text-align: center;
+  font-weight: bold;
+  font-family: Rubik Mono One;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 60px;
+  line-height: 74px;
+}
+img {
+  width: 50%;
+  border-radius: 31px;
+}
+
+/*Login/Signup */
+.logins {
+  width: 30%;
+}
+.centering {
+  display: flex;
+  justify-content: space-around;
+}
+
+.signupLogin {
+  width: 30%;
+  background: #e9ccc5;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+}
+.signupLoginHeader {
+  color: white;
+  text-align: center;
+}
