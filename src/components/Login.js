@@ -5,6 +5,7 @@ import * as yup from "yup";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  //STATE
   const [form, setForm] = useState({
     username: "",
     password: "",
@@ -12,12 +13,14 @@ const Login = () => {
 
   const [disabled, setDisabled] = useState(true);
 
+  //ONCHANGE
   const change = (e) => {
     const { value, name } = e.target;
     const valueToUse = value;
     setForm({ ...form, [name]: valueToUse });
   };
 
+  //VALIDATION
   const schema = yup.object().shape({
     username: yup
       .string()
@@ -33,6 +36,7 @@ const Login = () => {
     schema.isValid(form).then((valid) => setDisabled(!valid));
   }, [form]);
 
+  //JSX
   return (
     <div>
       <nav>

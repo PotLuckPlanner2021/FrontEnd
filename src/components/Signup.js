@@ -1,24 +1,51 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
 import Image from "../assets/potluck5.jpg";
+import * as yup from "yup";
 
 const Signup = () => {
+  //  STATE
   const [signUp, setSignup] = useState({
     username: "",
     fullName: "",
     password: "",
     confirmPassword: "",
   });
-
   const [disabled, setDisabled] = useState(true);
 
+  // ONCHANGE
   const change = (e) => {
     const { value, name } = e.target;
     const valueToUse = value;
     setSignup({ ...signUp, [name]: valueToUse });
   };
 
+  //VALIDATION
+  const schema = yup.object().shape({
+    username: yup
+      .string()
+      .required("Username is required")
+      .min(2, "Username needs to be at least 2 characters long"),
+    fullName: yup
+      .string()
+      .required("Name is required")
+      .min(2, "Name must be more than 2 characters long"),
+    password: yup
+      .string()
+      .required("Password is required")
+      .min(2, "Password must be at least 2 characters long"),
+    confirmPassword: yup
+      .string()
+      .required("Password is reqired")
+      .min(2, "Password must be at least 2 characters long"),
+  });
+
+  useEffect(() => {
+    schema.isValid(signUp).then((valid) => setDisabled(!valid));
+  }, [signUp]);
+
+  // JSX
   return (
     <div>
       <nav>
