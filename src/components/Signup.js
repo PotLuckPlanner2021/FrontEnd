@@ -21,7 +21,7 @@ const Signup = () => {
         <img src={Image} className="logins" alt="fruits"></img>
 
         <section className="signupLogin">
-          <h2 className="signupLoginHeader">Sign-upasd</h2>
+          <h2 className="signupLoginHeader">Sign-up</h2>
           <form className="signupLoginform">
             <input placeholder="Username" type="text"></input>
             <input placeholder="Full Name" type="text"></input>
