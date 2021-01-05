@@ -1,7 +1,38 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from "react"
+import { Route, Link, Switch } from 'react-router-dom'
+import axios from 'axios'
 import './App.css';
 
+const buttons = {
+  itemOne = claimItemOne,
+  itemTwo = claimItemTwo,
+}
+
 function App() {
+
+  const [claimItemOne, setClaimItemOne] = useState(false)
+
+  const claimTheItemOne = event => {
+    event.preventDefault()
+    setClaimItemOne(true)
+    setClaimItemTwo(false)
+  }
+
+  const claimTheItemTwo = event => {
+    event.preventDefault()
+    setClaimItemOne(false)
+    setClaimItemTwo(true)
+  }
+
+  const bringingText = event => {
+    if (itemOne = true) {
+      return itemOne
+    }
+    if (itemTwo = true) {
+      return itemTwo
+    }
+  }
+
   return (
     <div className="App">
       <header className="header">
@@ -10,10 +41,10 @@ function App() {
       <body>
         <section className="stuff-to-bring">
           <h2>Click a Button to Claim an Item or to Switch</h2>
-          <button className="item-one">
+          <button className="item-one" onClick={claimTheItemOne}>
             Item One
           </button>
-          <button className="item-two">
+          <button className="item-two" onClick={claimTheItemTwo}>
             Item Two
           </button>
         </section>
@@ -22,7 +53,7 @@ function App() {
             <img src={profilePic} classname="profile-pic" alt="profile pic">
             </img>
             <h2>{profileName}</h2>
-            <p>Bringing: {itemNumber}</p>
+            <p>Bringing: {bringingText}</p>
           </div>
         </section>
       </body>
