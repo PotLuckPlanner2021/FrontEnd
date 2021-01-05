@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-import logo from "./logo.svg";
-import "./App.css";
-=======
-import Home from "./components/Home";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
-import { Route } from "react-router-dom";
->>>>>>> 6d8c6dfc6ae38298154a18e300671fdc2cf20de0
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
-<<<<<<< HEAD
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -23,14 +15,9 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn Reactasd
+          Learn React
         </a>
       </header>
-=======
-      <Route exact path="/" component={Home} />
-      <Route path="/Signup" component={Signup} />
-      <Route path="/Login" component={Login} />
->>>>>>> 6d8c6dfc6ae38298154a18e300671fdc2cf20de0
     </div>
   );
 }
