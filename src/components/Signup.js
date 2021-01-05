@@ -102,6 +102,7 @@ const Signup = () => {
         <section className="signupLogin">
           <h2 className="signupLoginHeader">Sign-up</h2>
           <form className="signupLoginform" onSubmit={submit}>
+            <div>{errors.username}</div>
             <input
               onChange={change}
               value={signUp.username}
@@ -110,8 +111,7 @@ const Signup = () => {
               type="text"
             ></input>
             <br />
-            <div>{errors.username}</div>
-
+            <div>{errors.fullName}</div>
             <input
               onChange={change}
               value={signUp.fullName}
@@ -120,8 +120,8 @@ const Signup = () => {
               type="text"
             ></input>
             <br />
-            <div>{errors.fullName}</div>
 
+            <div>{errors.password}</div>
             <input
               onChange={change}
               value={signUp.password}
@@ -130,8 +130,8 @@ const Signup = () => {
               type="text"
             ></input>
             <br />
-            <div>{errors.password}</div>
 
+            <div>{errors.confirmPassword}</div>
             <input
               onChange={change}
               value={signUp.confirmPassword}
@@ -140,7 +140,6 @@ const Signup = () => {
               type="text"
             ></input>
             <br />
-            <div>{errors.confirmPassword}</div>
 
             <button disabled={disabled}>Signup</button>
           </form>
