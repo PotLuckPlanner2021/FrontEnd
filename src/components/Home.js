@@ -6,10 +6,16 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div>
-      <Logo />
       <nav>
-        <Link to="Login">Login</Link>
-        <Link to="Signup">Signup</Link>
+        <Logo />
+        <div className="links">
+          <Link to="Login" className="link">
+            Login
+          </Link>
+          <Link to="Signup" className="link">
+            Signup
+          </Link>
+        </div>
       </nav>
       <h1 className="tag">Better Meals Together</h1>
       <div className="homeImg">
