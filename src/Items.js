@@ -8,7 +8,7 @@ const buttons = {
   itemTwo = claimItemTwo,
 }
 
-function App() {
+function Items() {
 
   const [claimItemOne, setClaimItemOne] = useState(false)
 
@@ -34,7 +34,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="Items">
       <header className="header">
         <h1>Pot Luck Planner</h1>
       </header>
@@ -61,4 +61,4 @@ function App() {
   );
 }
 
-export default App;
+export default Items;
