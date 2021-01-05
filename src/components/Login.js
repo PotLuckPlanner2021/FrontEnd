@@ -1,9 +1,70 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "../assets/potluck5.jpg";
 import Logo from "./Logo";
+import * as yup from "yup";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
+  //STATE
+  const [form, setForm] = useState({
+    username: "",
+    password: "",
+  });
+  const [errors, setErrors] = useState({ username: "", password: "" });
+  const [disabled, setDisabled] = useState(true);
+
+  //ONCHANGE
+  const change = (e) => {
+    const { value, name } = e.target;
+    const valueToUse = value;
+    setFormErrors(name, valueToUse);
+    setForm({ ...form, [name]: valueToUse });
+  };
+
+  //VALIDATION
+  const schema = yup.object().shape({
+    username: yup
+      .string()
+      .required("Username is required")
+      .min(4, "Username needs to be more then 4 characters long"),
+    password: yup
+      .string()
+      .required("Password required")
+      .min(4, "Password must be more than 4 characters long"),
+  });
+
+  useEffect(() => {
+    schema.isValid(form).then((valid) => setDisabled(!valid));
+  }, [form]);
+
+  //Validation Errors
+  const setFormErrors = (name, value) => {
+    yup
+      .reach(schema, name)
+      .validate(value)
+      .then(() => setErrors({ ...setFormErrors, [name]: "" }))
+      .catch((err) => setErrors({ ...errors, [name]: err.errors[0] }));
+  };
+
+  //SUBMIT
+  const submit = (e) => {
+    e.preventDefault();
+    //NEED END POINT
+    axios
+      .post("#")
+      .then((res) => {
+        setForm({
+          username: "",
+          password: "",
+        });
+      })
+      .catch((err) => {
+        console.error(err, "error");
+      });
+  };
+
+  //JSX
   return (
     <div>
       <nav>
@@ -21,13 +82,32 @@ const Login = () => {
         <img src={Image} className="logins" alt="fruits"></img>
         <section className="signupLogin">
           <h2 className="signupLoginHeader">Login</h2>
-          <form className="signupLoginform">
-            <input placeholder="Username" type="text"></input>
-            <input placeholder="Password" type="text"></input>
-            <button>Login</button>
+          <form className="signupLoginform" onSubmit={submit}>
+            <input
+              onChange={change}
+              value={form.username}
+              name="username"
+              placeholder="Username"
+              type="text"
+            ></input>
+            <br />
+
+            <div>{errors.username}</div>
+            <br />
+            <input
+              onChange={change}
+              value={form.password}
+              name="password"
+              placeholder="Password"
+              type="text"
+            ></input>
+            <br />
+            <div>{errors.password}</div>
+            <br />
+            <button disabled={disabled}>Login</button>
           </form>
           <Link to="Signup" className="signupLoginLink">
-            Don't have an account? Sign up!asd
+            Don't have an account? Sign up!
           </Link>
         </section>
       </section>

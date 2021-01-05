@@ -67,7 +67,7 @@ img {
 
 /*Login/Signup */
 .logins {
-  width: 29%;
+  width: 25%;
   margin-top: 20px;
 }
 .centering {
@@ -76,7 +76,7 @@ img {
 }
 
 .signupLogin {
-  width: 29%;
+  width: 30%;
   margin-top: 20px;
   background: #e9ccc5;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -88,13 +88,13 @@ img {
 }
 button {
   background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   width: 30%;
   height: 3vw;
 }
 .signupLoginLink {
   text-decoration: none;
-  text-align: center;
+  padding: 10%;
+  margin-left: 100px;
   color: white;
 }
 .signupLoginform {
@@ -102,5 +102,15 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* width: 90%; */
+}
+input {
+  margin-bottom: 2%;
+  width: 70%;
+  height: 5vh;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+}
+.signupLoginHeader {
+  font-size: 3rem;
 }
