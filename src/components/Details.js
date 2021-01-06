@@ -1,10 +1,21 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import Logo from './Logo';
+import '../style/index.css';
 
 const Details = () => {
 
-    
+    const fakeEvent = {
+        eventName: "Lord Oh Rings",
+        date: "January 20th, 2021",
+        time: "5PM",
+        location: "@Zoom",
+        theme: "Lord of the Rings",
+        foodNeeded: ["The one to rull them onion rings", "A pint of brews", "Lembas Bread", "Afternoon Tea", "Second Breakfast", "Dragon Meat"],
+        guestAttending: ["Bhawnish", "Mark", "Justin", "Jay", "Michael", "Edd", "Jennifer", "Julia", "Claudiu", "Robert", "Aszalea", "Nadeem"]
+    }
+
+
     return (
         <div>
             <nav>
@@ -18,6 +29,17 @@ const Details = () => {
                     </Link>
                 </div>
             </nav>
+            <div className="pinkBox">
+                <h1 className="detailsEventName">{fakeEvent.eventName}</h1>
+                <div className="details">
+                    <p>{fakeEvent.date}</p>
+                    <p>{fakeEvent.time}</p>
+                    <p>{fakeEvent.location}</p>
+                </div>
+                <p className="theme">Our theme is {fakeEvent.theme}!</p>
+                <h2>What We Need</h2>
+                <h2>Who's Coming</h2>
+            </div>
         </div>
     )
 }

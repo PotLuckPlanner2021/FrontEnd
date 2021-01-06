@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Rubik+Mono+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
 /*Main font*/
 /* smaller one
 font-family: 'Roboto Condensed', sans-serif;
@@ -113,4 +114,40 @@ input {
 }
 .signupLoginHeader {
   font-size: 3rem;
+}
+
+.pinkBox {
+  background-color: #E9CCC5;
+  border-radius: 30px;
+  margin: 5%;
+  padding: 3%;
+}
+
+.pinkBox p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.pinkBox h2 {
+  font-family: "Rubik Mono One", serif;
+}
+
+.detailsEventName {
+  color: #fff;
+  font-family: "Rubik Mono One", serif;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.details {
+  display: flex;
+  flex-direction: row;
+}
+
+.details p {
+  margin: auto;
+}
+
+.theme {
+  text-align: center;
 }
