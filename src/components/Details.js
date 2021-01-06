@@ -2,7 +2,9 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import Logo from './Logo';
 
-export default function Details() {
+const Details = () => {
+
+    
     return (
         <div>
             <nav>
@@ -19,3 +21,5 @@ export default function Details() {
         </div>
     )
 }
+
+export default Details;

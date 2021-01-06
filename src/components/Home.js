@@ -15,6 +15,9 @@ const Home = () => {
           <Link to="Signup" className="link">
             Signup
           </Link>
+          <Link to="Details" className="link">
+            Details
+          </Link>
         </div>
       </nav>
       <h1 className="tag">Better Meals Together</h1>
