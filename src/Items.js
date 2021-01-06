@@ -9,103 +9,134 @@ import Image from "./assets/potluck5.jpg";
 
 
 function Items() {
+  const [ bringing1, setBringing1 ] = useState(false)
+  const [ bringing2, setBringing2 ] = useState(false)
+  const [ bringing3, setBringing3 ] = useState(false)
+  const [ bringing4, setBringing4 ] = useState(false)
+  const [ bringing5, setBringing5 ] = useState(false)
+  const [ bringing6, setBringing6 ] = useState(false)
+  const [ bringing7, setBringing7 ] = useState(false)
+  const [ bringing8, setBringing8 ] = useState(false)
+  const [ bringing9, setBringing9 ] = useState(false)
 
+  const [ finalChoice, setFinalChoice ] = useState([])
 
   const buttons = {
-    item1: false,
-    item2: false,
-    item3: false,
-    item4: false,
-    item5: false,
-    item6: false,
-    item7: false,
-    item8: false,
-    item9: false,
+    item1: bringing1,
+    item2: bringing2,
+    item3: bringing3,
+    item4: bringing4,
+    item5: bringing5,
+    item6: bringing6,
+    item7: bringing7,
+    item8: bringing8,
+    item9: bringing9,
   }
 
   function itemClicked (num) {
-    console.log(buttons)
+    setFinalChoice(num)
+    
     if (num === 1) {
+      
       if (buttons.item1 === true) {
-        return buttons.item1 = false
+        setFinalChoice([])
+        return setBringing1(false)
       }
       if (buttons.item1 === false) {
-        return buttons.item1 = true
+        
+        return setBringing1(true)
       }
   }
 
     if (num === 2) {
       if (buttons.item2 === true) {
-        return buttons.item2 = false
+        setFinalChoice([])
+        return setBringing2(false)
       }
       if (buttons.item2 === false) {
-        return buttons.item2 = true
+        
+        return setBringing2(true)
       }
     }
 
     if (num === 3) {
       if (buttons.item3 === true) {
-        return buttons.item3 = false
+        setFinalChoice([])
+        return setBringing3(false)
       }
       if (buttons.item3 === false) {
-        return buttons.item3 = true
+        
+        return setBringing3(true)
       }
     }
 
     if (num === 4) {
       if (buttons.item4 === true) {
-        return buttons.item3 = false
+        setFinalChoice([])
+        return setBringing4(false)
       }
       if (buttons.item4 === false) {
-        return buttons.item4 = true
+        
+        return setBringing4(true)
       }
     }
 
     if (num === 5) {
       if (buttons.item5 === true) {
-        return buttons.item3 = false
+        setFinalChoice([])
+        return setBringing5(false)
       }
       if (buttons.item5 === false) {
-        return buttons.item5 = true
+        
+        return setBringing5(true)
       }
     }
 
     if (num === 6) {
       if (buttons.item6 === true) {
-        return buttons.item6 = false
+        setFinalChoice([])
+        return setBringing6(false)
       }
       if (buttons.item6 === false) {
-        return buttons.item6 = true
+        
+        return setBringing6(true)
       }
     }
 
     if (num === 7) {
       if (buttons.item7 === true) {
-        return buttons.item7 = false
+        setFinalChoice([])
+        return setBringing7(false)
       }
       if (buttons.item7 === false) {
-        return buttons.item7 = true
+        
+        return setBringing7(true)
       }
     }
 
     if (num === 8) {
       if (buttons.item8 === true) {
-        return buttons.item8 = false
+        setFinalChoice([])
+        return setBringing8(false)
       }
       if (buttons.item8 === false) {
-        return buttons.item8 = true
+        
+        return setBringing8(true)
       }
     }
 
     if (num === 9) {
       if (buttons.item9 === true) {
-        return buttons.item9 = false
+        setFinalChoice([])
+        return setBringing9(false)
       }
       if (buttons.item9 === false) {
-        return buttons.item9 = true
+        
+        return setBringing9(true)
       }
     }
   }
+
     
   return (
     <section className="centering">
@@ -171,7 +202,7 @@ function Items() {
                 {/* <img src={profilePic} classname="profile-pic" alt="profile pic">
                 </img> */}
                 <h2>Who's Bringing What?</h2>
-                <p>Bringing: </p>
+                <p>Bringing: {finalChoice}</p>
                 <button>Add Stuff</button>
               </div>
             </section>
