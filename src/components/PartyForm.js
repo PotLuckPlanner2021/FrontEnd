@@ -6,14 +6,15 @@ import Image from "../assets/potluck5.jpg";
 const PartyForm = () => {
 
     function addFood () {
-        const food = document.querySelector(".Food")
-        const newFood = document.createElement("input")
+        return null
+        // const food = document.querySelector(".Food")
+        // const newFood = document.createElement("input")
 
-        newFood.classList.add = "Food"
-        newFood.placeholder = "Food Needed"
-        newFood.type = "text"
+        // newFood.classList.add = "Food"
+        // newFood.placeholder = "Food Needed"
+        // newFood.type = "text"
 
-        return food.append(newFood)
+        // return food.append(newFood)
     }
 
     return (
@@ -63,4 +64,4 @@ const PartyForm = () => {
     );
 };
 
-export default PartyForm;
+export default PartyForm

@@ -1,9 +1,10 @@
+// eslint-disable-next-line 
 import React, { useState, useEffect } from "react"
-import { Route, Link, Switch } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import "./style/index.css"
 import Logo from "./components/Logo";
-import homeImage from "./assets/HomePage.png"
+// import homeImage from "./assets/HomePage.png"
 import Image from "./assets/potluck5.jpg";
 
 
@@ -13,10 +14,24 @@ function Items() {
 
   // const [claimItemTwo, setClaimItemTwo] = useState(false)
 
-  // const buttons = {
-  //   itemOne: claimItemOne,
-  //   itemTwo: claimItemTwo,
-  // }
+  const buttons = {
+    item1: false,
+    item2: false,
+    item3: false,
+    item4: false,
+    item5: false,
+    item6: false,
+    item7: false,
+    item8: false,
+    item9: false,
+  }
+
+  function buttonClicked(clickNumber) {
+    // console.log("test")
+    // console.log(buttons)
+    const clicked = buttons.item`${clickNumber}`
+    console.log(buttons.clicked)
+  }
 
   // const claimTheItemOne = event => {
   //   event.preventDefault()
@@ -68,31 +83,31 @@ function Items() {
           <p>Our Theme is Lord of the Rings!</p>
           <section className="stuff-to-bring">
             <h2>What We Need</h2>
-            <button className="item-one" >
+            <button className="item1" onClick={buttonClicked(1)} >
               Onion Rings
             </button>
-            <button className="item-two" >
+            <button className="item2" onClick={buttonClicked(2)} >
               Napkins
             </button>
-            <button className="item-one" >
+            <button className="item3" onClick={buttonClicked(3)} >
               Beer
             </button>
-            <button className="item-two" >
+            <button className="item4" onClick={buttonClicked(4)} >
               Chips
             </button>
-            <button className="item-one" >
+            <button className="item5" onClick={buttonClicked(5)} >
               Pie
             </button>
-            <button className="item-two" >
+            <button className="item6" onClick={buttonClicked(6)} >
               HotDogs
             </button>
-            <button className="item-one" >
+            <button className="item7" onClick={buttonClicked(7)} >
               Corn on the Cob
             </button>
-            <button className="item-two" >
+            <button className="item8" onClick={buttonClicked(8)} >
               Crystal Pepsi
             </button>
-            <button className="item-two" >
+            <button className="item9" onClick={buttonClicked(9)} >
               Ravioli
             </button>
           </section>

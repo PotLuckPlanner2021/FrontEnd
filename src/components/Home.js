@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "./Logo";
 import homeImage from "../assets/HomePage.png";
-import Items from "../Items"
+// import Items from "../Items"
 import { Link } from "react-router-dom";
 
 const Home = () => {
