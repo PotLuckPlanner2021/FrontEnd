@@ -7,45 +7,63 @@ import Logo from "./components/Logo";
 // import homeImage from "./assets/HomePage.png"
 import Image from "./assets/potluck5.jpg";
 
-const listOfItemIds = ['item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9'];
 
 function Items() {
 
-  const [claimTheItem, setTheClaimItem] = useState(false)
-
+  const [ button, setButton ] = useState(false)
 
   const buttons = {
-    item1: claimTheItem,
-    item2: claimTheItem,
-    item3: claimTheItem,
-    item4: claimTheItem,
-    item5: claimTheItem,
-    item6: claimTheItem,
-    item7: claimTheItem,
-    item8: claimTheItem,
-    item9: claimTheItem,
+    item1: false,
+    item2: false,
+    item3: false,
+    item4: false,
+    item5: false,
+    item6: false,
+    item7: false,
+    item8: false,
+    item9: false,
   }
 
-  const [claimedItem, setClaimedItem] = useState(null) 
-  const [unclaimedItem, setUnclaimedItem] =  useState(listOfItemIds)
+  function itemClicked (num) {
+    if (num === 1) {
+      buttons.item1 = true
+    }
 
-  const markUnclaimed = id => {
-    if (id === claimedItem) {
-      return "active"
+    if (num === 2) {
+      buttons.item2 = true
     }
-    else {
-      return ""
-    }
-  };
 
-  const markClaimed = id => {
-    if (id === claimedItem) {
-      setClaimedItem(null)
+    if (num === 3) {
+      buttons.item3 = true
     }
-    else {
-      setClaimedItem(id)
+
+    if (num === 4) {
+      buttons.item4 = true
     }
-  };  
+
+    if (num === 5) {
+      buttons.item5 = true
+    }
+
+    if (num === 6) {
+      buttons.item6 = true
+    }
+
+    if (num === 7) {
+      buttons.item7 = true
+    }
+
+    if (num === 8) {
+      buttons.item8 = true
+    }
+
+    if (num === 9) {
+      buttons.item9 = true
+    }
+  
+    console.log(buttons)
+  }
+ 
     
   return (
     <section className="centering">
@@ -77,44 +95,32 @@ function Items() {
             <p>Our Theme is Lord of the Rings!</p>
             <section className="stuff-to-bring">
               <h2>What We Need</h2>
-          {
-            unclaimedItem.map(id =>
-              <div
-                id={id}
-                key={id}
-                className={`claimedItem${markUnclaimed(id)}`}
-                onClick={() => unclaimedItem(id)}
-              >
-              </div>
-            )
-          }
-
-
-              <button className="item" onClick={claimItem(1)} >
+          
+              <button className="item" onClick={() => itemClicked(1)} >
                 Onion Rings
               </button>
-              <button className="item2" onClick={claimItem(2)} >
+              <button className="item" onClick={() => itemClicked(2)} >
                 Napkins
               </button>
-              <button className="item" onClick={claimItem(3)} >
+              <button className="item" onClick={() => itemClicked(3)} >
                 Beer
               </button>
-              <button className="item" onClick={claimItem(4)} >
+              <button className="item" onClick={() => itemClicked(4)} >
                 Chips
               </button>
-              <button className="item" onClick={claimItem(5)} >
+              <button className="item" onClick={() => itemClicked(5)} >
                 Pie
               </button>
-              <button className="item" onClick={claimItem(6)} >
+              <button className="item" onClick={() => itemClicked(6)} >
                 HotDogs
               </button>
-              <button className="item" onClick={claimItem(7)} >
+              <button className="item" onClick={() => itemClicked(7)} >
                 Corn on the Cob
               </button>
-              <button className="item" onClick={claimItem(8)} >
+              <button className="item" onClick={() => itemClicked(8)} >
                 Crystal Pepsi
               </button>
-              <button className="item" onClick={claimItem(9)} >
+              <button className="item" onClick={() => itemClicked(9)} >
                 Ravioli
               </button>
             </section>
