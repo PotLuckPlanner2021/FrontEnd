@@ -35,7 +35,7 @@ function Items() {
 
   function itemClicked (num) {
     setFinalChoice(num)
-    
+
     if (num === 1) {
       
       if (buttons.item1 === true) {
@@ -137,6 +137,17 @@ function Items() {
     }
   }
 
+  const list = document.querySelector(".stuff-to-bring")
+
+  function addStuff () {
+    
+    const newButton = document.createElement("button")
+    newButton.classList = "item"
+    newButton.onClick = `{() => itemClicked(5)}`
+    newButton.textContent = "test"
+
+    list.appendChild(newButton)
+  }
     
   return (
     <section className="centering">
@@ -203,7 +214,10 @@ function Items() {
                 </img> */}
                 <h2>Who's Bringing What?</h2>
                 <p>Bringing: {finalChoice}</p>
-                <button>Add Stuff</button>
+                <input className="newItem" placeholder="Enter New Items" type="text"></input>
+                <button className="add-stuff" onClick={addStuff} >
+                  Add Stuff
+                </button>
               </div>
             </section>
           </div>
