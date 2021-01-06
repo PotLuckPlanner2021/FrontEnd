@@ -10,7 +10,6 @@ import Image from "./assets/potluck5.jpg";
 
 function Items() {
 
-  const [ button, setButton ] = useState(false)
 
   const buttons = {
     item1: false,
@@ -25,45 +24,88 @@ function Items() {
   }
 
   function itemClicked (num) {
+    console.log(buttons)
     if (num === 1) {
-      buttons.item1 = true
-    }
+      if (buttons.item1 === true) {
+        return buttons.item1 = false
+      }
+      if (buttons.item1 === false) {
+        return buttons.item1 = true
+      }
+  }
 
     if (num === 2) {
-      buttons.item2 = true
+      if (buttons.item2 === true) {
+        return buttons.item2 = false
+      }
+      if (buttons.item2 === false) {
+        return buttons.item2 = true
+      }
     }
 
     if (num === 3) {
-      buttons.item3 = true
+      if (buttons.item3 === true) {
+        return buttons.item3 = false
+      }
+      if (buttons.item3 === false) {
+        return buttons.item3 = true
+      }
     }
 
     if (num === 4) {
-      buttons.item4 = true
+      if (buttons.item4 === true) {
+        return buttons.item3 = false
+      }
+      if (buttons.item4 === false) {
+        return buttons.item4 = true
+      }
     }
 
     if (num === 5) {
-      buttons.item5 = true
+      if (buttons.item5 === true) {
+        return buttons.item3 = false
+      }
+      if (buttons.item5 === false) {
+        return buttons.item5 = true
+      }
     }
 
     if (num === 6) {
-      buttons.item6 = true
+      if (buttons.item6 === true) {
+        return buttons.item6 = false
+      }
+      if (buttons.item6 === false) {
+        return buttons.item6 = true
+      }
     }
 
     if (num === 7) {
-      buttons.item7 = true
+      if (buttons.item7 === true) {
+        return buttons.item7 = false
+      }
+      if (buttons.item7 === false) {
+        return buttons.item7 = true
+      }
     }
 
     if (num === 8) {
-      buttons.item8 = true
+      if (buttons.item8 === true) {
+        return buttons.item8 = false
+      }
+      if (buttons.item8 === false) {
+        return buttons.item8 = true
+      }
     }
 
     if (num === 9) {
-      buttons.item9 = true
+      if (buttons.item9 === true) {
+        return buttons.item9 = false
+      }
+      if (buttons.item9 === false) {
+        return buttons.item9 = true
+      }
     }
-  
-    console.log(buttons)
   }
- 
     
   return (
     <section className="centering">
