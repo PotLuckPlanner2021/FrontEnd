@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "./Logo";
 import homeImage from "../assets/HomePage.png";
+import Items from "../Items"
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -14,6 +15,12 @@ const Home = () => {
           </Link>
           <Link to="Signup" className="link">
             Signup
+          </Link>
+          <Link to="Items" className="link">
+            Items
+          </Link>
+          <Link to="PartyForm" className="link">
+            PartyForm
           </Link>
         </div>
       </nav>
