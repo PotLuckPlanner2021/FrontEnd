@@ -6,6 +6,7 @@ import '../style/index.css';
 const Details = () => {
 
     const fakeEvent = {
+        id: Math.random(),
         eventName: "Lord Oh Rings",
         date: "January 20th, 2021",
         time: "5PM",
@@ -38,7 +39,18 @@ const Details = () => {
                 </div>
                 <p className="theme">Our theme is {fakeEvent.theme}!</p>
                 <h2>What We Need</h2>
+                <div className="whatWeNeed">
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
                 <h2>Who's Coming</h2>
+                <div className="whosComing">
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
+                <button className="edit">Edit</button>
             </div>
         </div>
     )

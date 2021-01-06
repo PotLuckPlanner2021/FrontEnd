@@ -116,11 +116,14 @@ input {
   font-size: 3rem;
 }
 
+/* Details Styles Below */
+
 .pinkBox {
   background-color: #E9CCC5;
   border-radius: 30px;
   margin: 5%;
   padding: 3%;
+  width: 40%;
 }
 
 .pinkBox p {
@@ -150,4 +153,9 @@ input {
 
 .theme {
   text-align: center;
+}
+
+.edit {
+  text-align: center;
+  margin: auto;
 }
