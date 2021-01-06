@@ -122,7 +122,7 @@ input {
   background-color: #E9CCC5;
   border-radius: 30px;
   margin: 5%;
-  padding: 3%;
+  padding: 2%;
   width: 40%;
 }
 
@@ -140,6 +140,8 @@ input {
   font-family: "Rubik Mono One", serif;
   text-align: center;
   text-decoration: underline;
+  margin-top: 0;
+  margin-bottom: 40px;
 }
 
 .details {
@@ -158,4 +160,23 @@ input {
 .edit {
   text-align: center;
   margin: auto;
+}
+
+.pinkBox input {
+  width: 5%;
+  box-shadow: none;
+  height: 20px;
+  margin: 0;
+}
+
+.pinkBox label {
+  margin: 2%;
+  font-weight: bold;
+}
+
+.edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto 0 auto;
 }
