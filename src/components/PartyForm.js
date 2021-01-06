@@ -5,16 +5,34 @@ import Image from "../assets/potluck5.jpg";
 
 const PartyForm = () => {
 
-    function addFood () {
-        return null
-        // const food = document.querySelector(".Food")
-        // const newFood = document.createElement("input")
+    const food = document.querySelector(".food")
+    const people = document.querySelector(".guests")
 
-        // newFood.classList.add = "Food"
-        // newFood.placeholder = "Food Needed"
-        // newFood.type = "text"
+    function addFood (event) {
+        event.preventDefault()
+        
+        const newFood = document.createElement("input")
+        newFood.classList = "Food"
+        newFood.placeholder = "test"
+        newFood.type = "text"
 
-        // return food.append(newFood)
+        food.appendChild(newFood)
+    }
+
+    function addPeople (event) {
+        event.preventDefault()
+        
+        const newPeople = document.createElement("input")
+        newPeople.classList = "Guest"
+        newPeople.placeholder = "test"
+        newPeople.type = "text"
+
+        people.appendChild(newPeople)
+    }
+
+    function addParty (event) {
+        event.preventDefault()
+        console.log('test')
     }
 
     return (
@@ -48,12 +66,15 @@ const PartyForm = () => {
                     <input placeholder="Location" type="text"></input>
                     <input placeholder="Host" type="text"></input>
                     <input placeholder="Theme" type="text"></input>
-                    <input placeholder="Guests" type="text"></input>
-                    <input className="Food" placeholder="Food Needed" type="text"></input>
-                    
-                    <button>Add Completed Party</button>
+                    <div className="guests">
+                        <input placeholder="Guests" type="text"></input>
+                    </div>
+                    <div className="food">
+                        <input className="Food" placeholder="Food Needed" type="text"></input>
+                    </div>
+                    <button onClick={addParty}>Add Completed Party</button>
                     <button onClick={addFood}>Add Food</button>
-                    <button>Add People</button>
+                    <button onClick={addPeople}>Add People</button>
                 </form>
                 <Link to="Login" className="signupLoginLink">
                     Have an account? Login!
