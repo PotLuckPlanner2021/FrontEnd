@@ -55,23 +55,24 @@ const Login = () => {
     e.preventDefault();
     //NEED END POINT
     axios
-      .post("http://pluckplanner.herokuapp.com/login",
-      `grant_type=password&username=${form.username}&password=${form.password}`,
-      {
-        headers: {
-          Authorization: `Basic ${btoa("lambda-client:lambda-secret")}`,
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      }
-    )
+      .post(
+        "http://pluckplanner.herokuapp.com/login",
+        `grant_type=password&username=${form.username}&password=${form.password}`,
+        {
+          headers: {
+            Authorization: `Basic ${btoa("lambda-client:lambda-secret")}`,
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        }
+      )
       .then((res) => {
-        localStorage.setItem('token', res.data.access_token)
+        localStorage.setItem("token", res.data.access_token);
         console.log(res);
         setForm({
           username: "",
           password: "",
         });
-        history.push('/MyPotlucks');
+        history.push("/MyPotlucks");
       })
       .catch((err) => {
         console.error(err.response, "error");
@@ -124,6 +125,7 @@ const Login = () => {
             <br />
             <div>{errors.password}</div>
             <br />
+
             <button disabled={disabled}>Login</button>
           </form>
           <Link to="Signup" className="signupLoginLink">
@@ -136,3 +138,6 @@ const Login = () => {
 };
 
 export default Login;
+
+//Fix the padding for the button in login
+//attach button to page via log in and signup

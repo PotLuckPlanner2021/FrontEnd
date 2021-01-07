@@ -94,10 +94,11 @@ button {
 }
 .signupLoginLink {
   text-decoration: none;
-  padding: 10%;
+  padding: 0%;
   margin-left: 100px;
   color: white;
 }
+/* // */
 .signupLoginform {
   display: flex;
   flex-direction: column;
@@ -196,8 +197,8 @@ input {
   object-fit: cover;
   image-rendering: pixelated;
   width: 440px;
-  height:160px;
-  
+  height: 160px;
+
   /* max-width: 20%;
   /* min-height: 10vh; */
 }
