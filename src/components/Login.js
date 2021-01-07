@@ -53,7 +53,6 @@ const Login = () => {
 
   const submit = (e) => {
     e.preventDefault();
-    //NEED END POINT
     axios
       .post(
         "http://pluckplanner.herokuapp.com/login",
@@ -89,12 +88,6 @@ const Login = () => {
           </Link>
           <Link to="Signup" className="link">
             Signup
-          </Link>
-          <Link to="Items" className="link">
-            Items
-          </Link>
-          <Link to="PartyForm" className="link">
-            PartyForm
           </Link>
         </div>
       </nav>

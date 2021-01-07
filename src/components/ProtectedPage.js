@@ -4,13 +4,23 @@ import EventList from './EventList';
 import Details from './Details';
 import PartyForm from './PartyForm';
 import Logo from './Logo';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 
 
 const ProtectedPage = () => {
-  
   const [userInfo, setUserInfo] = useState();
+  
+  const { push } = useHistory();
+
+  const logout = () => {
+    axiosWithAuth()
+      .get('/logout')
+      .then( () => {
+        localStorage.removeItem('token');
+        push('/');
+      })
+  }
 
   const getUserData = () => {
     axiosWithAuth() 
@@ -28,6 +38,7 @@ const ProtectedPage = () => {
     getUserData();
   },[])
 
+
   if (userInfo === undefined || userInfo === {}) {
     return (
       <h1>Loading...</h1>
@@ -39,7 +50,7 @@ const ProtectedPage = () => {
       <nav>
         <Logo />
         <div className="links">
-          <Link to="#" className="link">
+          <Link onClick={logout} className="link">
             Logout
           </Link>
         </div>

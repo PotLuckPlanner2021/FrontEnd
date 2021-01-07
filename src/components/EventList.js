@@ -14,17 +14,8 @@ const EventList = (props) => {
           <img src={newEventImage} alt='New Event' className='eventImage' />
           <h3>Add New Potluck</h3>
         </Link>
-        {/* { if (condition) {
-          
-        }
-          // !props.userInfo.potlucks ?? `You need some invites!`
-        } */}
+        {}
         {props.userInfo.potlucks.map(event => {
-          // if (event === undefined) {
-          //   return (
-          //     <h1> I'm Not there yet..</h1>
-          //   )
-          // }
           return (
             <div>
               <EventCard event={event} key={Date.now()} />

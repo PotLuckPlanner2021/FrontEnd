@@ -86,7 +86,6 @@ const Signup = () => {
 
   const submit = (e) => {
     e.preventDefault();
-    //NEED END POINT
     axios
       .post("http://pluckplanner.herokuapp.com/users/user", dataToPost)
       .then(() => {
