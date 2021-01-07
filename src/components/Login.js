@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Image from "../assets/potluck5.jpg";
 import Logo from "./Logo";
 import * as yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
@@ -48,19 +48,33 @@ const Login = () => {
   };
 
   //SUBMIT
+
+  const history = useHistory();
+
   const submit = (e) => {
     e.preventDefault();
     //NEED END POINT
     axios
-      .post("#")
+      .post("http://pluckplanner.herokuapp.com/login",
+      `grant_type=password&username=${form.username}&password=${form.password}`,
+      {
+        headers: {
+          Authorization: `Basic ${btoa("lambda-client:lambda-secret")}`,
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    )
       .then((res) => {
+        localStorage.setItem('token', res.data.access_token)
+        console.log(res);
         setForm({
           username: "",
           password: "",
         });
+        history.push('/MyPotlucks');
       })
       .catch((err) => {
-        console.error(err, "error");
+        console.error(err.response, "error");
       });
   };
 
