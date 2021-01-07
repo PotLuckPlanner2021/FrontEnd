@@ -76,6 +76,12 @@ const Login = () => {
           <Link to="Signup" className="link">
             Signup
           </Link>
+          <Link to="Items" className="link">
+            Items
+          </Link>
+          <Link to="PartyForm" className="link">
+            PartyForm
+          </Link>
         </div>
       </nav>
       <section className="centering">
