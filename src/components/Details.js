@@ -11,8 +11,8 @@ const Details = () => {
         time: "5PM",
         location: "@Zoom",
         theme: "Lord of the Rings",
-        foodNeeded: ["The one to rull them onion rings", "A pint of brews", "Lembas Bread", "Afternoon Tea", "Second Breakfast", "Dragon Meat"],
-        guestAttending: ["Bhawnish", "Mark", "Justin", "Jay", "Michael", "Edd", "Jennifer", "Julia", "Claudiu", "Robert", "Aszalea", "Nadeem"]
+        items: ["The one to rull them onion rings", "A pint of brews", "Lembas Bread", "Afternoon Tea", "Second Breakfast", "Dragon Meat"],
+        guests: ["Bhawnish", "Mark", "Justin", "Jay", "Michael", "Edd", "Jennifer", "Julia", "Claudiu", "Robert", "Aszalea", "Nadeem"]
     }
 
 
@@ -30,116 +30,116 @@ const Details = () => {
                 <h2>What We Need</h2>
                 <div className="whatWeNeed">
                     <input
-                        name="foodNeeded"
+                        name="items"
                         type="radio"
-                        value={fakeEvent.foodNeeded[0]}
+                        value={fakeEvent.items[0]}
                     />
-                    <label>{fakeEvent.foodNeeded[0]}</label>
+                    <label>{fakeEvent.items[0]}</label>
                     <input
-                        name="foodNeeded"                            
+                        name="items"                            
                         type="radio"
-                        value={fakeEvent.foodNeeded[1]}
+                        value={fakeEvent.items[1]}
                     />
-                    <label>{fakeEvent.foodNeeded[1]}</label>
+                    <label>{fakeEvent.items[1]}</label>
                     <input
-                        name="foodNeeded"
+                        name="items"
                         type="radio"
-                        value={fakeEvent.foodNeeded[2]}
+                        value={fakeEvent.items[2]}
                     />
-                    <label>{fakeEvent.foodNeeded[2]}</label>
+                    <label>{fakeEvent.items[2]}</label>
                     <input
-                        name="foodNeeded"
+                        name="items"
                         type="radio"
-                        value={fakeEvent.foodNeeded[3]}
+                        value={fakeEvent.items[3]}
                     />
-                    <label>{fakeEvent.foodNeeded[3]}</label>
+                    <label>{fakeEvent.items[3]}</label>
                     <input
-                        name="foodNeeded"
+                        name="items"
                         type="radio"
-                        value={fakeEvent.foodNeeded[4]}
+                        value={fakeEvent.items[4]}
                     />
-                    <label>{fakeEvent.foodNeeded[4]}</label>
+                    <label>{fakeEvent.items[4]}</label>
                     <input
-                        name="foodNeeded"
+                        name="items"
                         type="radio"
-                        value={fakeEvent.foodNeeded[5]}
+                        value={fakeEvent.items[5]}
                     />
-                    <label>{fakeEvent.foodNeeded[5]}</label>
+                    <label>{fakeEvent.items[5]}</label>
                 </div>
                 <h2>Who's Coming</h2>
                 <div className="whosComing">
                     <input
-                        name="guestAttending"
+                        name="guests"
                         type="radio"
-                        value={fakeEvent.guestAttending[0]}
+                        value={fakeEvent.guests[0]}
                     />
-                    <label>{fakeEvent.guestAttending[0]}</label>
+                    <label>{fakeEvent.guests[0]}</label>
                     <input
-                        name="guestAttending"
+                        name="guests"
                         type="radio"
-                        value={fakeEvent.guestAttending[1]}
+                        value={fakeEvent.guests[1]}
                     />
-                    <label>{fakeEvent.guestAttending[1]}</label>
+                    <label>{fakeEvent.guests[1]}</label>
                     <input
-                        name="guestAttending"
+                        name="guests"
                         type="radio"
-                        value={fakeEvent.guestAttending[2]}
+                        value={fakeEvent.guests[2]}
                     />
-                    <label>{fakeEvent.guestAttending[2]}</label>
+                    <label>{fakeEvent.guests[2]}</label>
                     <input
-                        name="guestAttending"
+                        name="guests"
                         type="radio"
-                        value={fakeEvent.guestAttending[3]}
+                        value={fakeEvent.guests[3]}
                     />
-                    <label>{fakeEvent.guestAttending[3]}</label>
+                    <label>{fakeEvent.guests[3]}</label>
                     <input
-                        name="guestAttending"
+                        name="guests"
                         type="radio"
-                        value={fakeEvent.guestAttending[4]}
+                        value={fakeEvent.guests[4]}
                     />
-                    <label>{fakeEvent.guestAttending[4]}</label>
+                    <label>{fakeEvent.guests[4]}</label>
                     <input
-                        name="guestAttending"
+                        name="guests"
                         type="radio"
-                        value={fakeEvent.guestAttending[5]}
+                        value={fakeEvent.guests[5]}
                     />
-                    <label>{fakeEvent.guestAttending[5]}</label>
+                    <label>{fakeEvent.guests[5]}</label>
                     <input
-                        name="guestAttending"
+                        name="guests"
                         type="radio"
-                        value={fakeEvent.guestAttending[6]}
+                        value={fakeEvent.guests[6]}
                     />
-                    <label>{fakeEvent.guestAttending[6]}</label>
+                    <label>{fakeEvent.guests[6]}</label>
                     <input
-                        name="guestAttending"
+                        name="guests"
                         type="radio"
-                        value={fakeEvent.guestAttending[7]}
+                        value={fakeEvent.guests[7]}
                     />
-                    <label>{fakeEvent.guestAttending[7]}</label>
+                    <label>{fakeEvent.guests[7]}</label>
                     <input
-                        name="guestAttending"
+                        name="guests"
                         type="radio"
-                        value={fakeEvent.guestAttending[8]}
+                        value={fakeEvent.guests[8]}
                     />
-                    <label>{fakeEvent.guestAttending[8]}</label>
+                    <label>{fakeEvent.guests[8]}</label>
                     <input
-                        name="guestAttending"
+                        name="guests"
                         type="radio"
-                        value={fakeEvent.guestAttending[9]}
+                        value={fakeEvent.guests[9]}
                     />
-                    <label>{fakeEvent.guestAttending[9]}</label>
+                    <label>{fakeEvent.guests[9]}</label>
                     <input
-                        name="guestAttending"
+                        name="guests"
                         type="radio"
-                        value={fakeEvent.guestAttending[10]}
+                        value={fakeEvent.guests[10]}
                     />
-                    <label>{fakeEvent.guestAttending[10]}</label>
+                    <label>{fakeEvent.guests[10]}</label>
                     <input
-                        name="guestAttending"
+                        name="guests"
                         type="radio"
-                        value={fakeEvent.guestAttending[11]}
+                        value={fakeEvent.guests[11]}
                     />
-                    <label>{fakeEvent.guestAttending[11]}</label>
+                    <label>{fakeEvent.guests[11]}</label>
                 </div>
                 <button className="edit">Edit</button>
             </div>
