@@ -180,3 +180,25 @@ input {
   align-items: center;
   margin: 20px auto 0 auto;
 }
+
+/* Event List Styles */
+.eventCard {
+  display: flex;
+  flex-flow: row wrap;
+  /* color:red; */
+  text-decoration: none;
+  border: 1px solid red;
+  align-items: center;
+  max-width: 40%;
+  justify-content: space-between;
+}
+.eventImage {
+  object-fit: cover;
+  image-rendering: pixelated;
+  width: 440px;
+  height:160px;
+  
+  /* max-width: 20%;
+  /* min-height: 10vh; */
+}
+
