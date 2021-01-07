@@ -120,7 +120,7 @@ const Login = () => {
               value={form.password}
               name="password"
               placeholder="Password"
-              type="text"
+              type="password"
             ></input>
             <br />
             <div>{errors.password}</div>
@@ -128,9 +128,11 @@ const Login = () => {
 
             <button disabled={disabled}>Login</button>
           </form>
-          <Link to="Signup" className="signupLoginLink">
-            Don't have an account? Sign up!
-          </Link>
+          <div className="centering">
+            <Link to="Signup" className="signupLoginLink">
+              Don't have an account? Sign up!
+            </Link>
+          </div>
         </section>
       </section>
     </div>
@@ -140,4 +142,4 @@ const Login = () => {
 export default Login;
 
 //Fix the padding for the button in login
-//attach button to page via log in and signup
+//Styling

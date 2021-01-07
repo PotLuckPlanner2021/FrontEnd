@@ -133,7 +133,7 @@ const Signup = () => {
               value={signUp.password}
               placeholder="Password"
               name="password"
-              type="text"
+              type="password"
             ></input>
             <br />
 
@@ -143,15 +143,17 @@ const Signup = () => {
               value={signUp.confirmPassword}
               placeholder="Confirm Password"
               name="confirmPassword"
-              type="text"
+              type="password"
             ></input>
             <br />
 
             <button disabled={disabled}>Signup</button>
           </form>
-          <Link to="Login" className="signupLoginLink">
-            Have an account? Login!
-          </Link>
+          <div className="centering">
+            <Link to="Login" className="signupLoginLink">
+              Have an account? Login!
+            </Link>
+          </div>
         </section>
       </section>
     </div>

@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Rubik+Mono+One&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap");
 /*Main font*/
 /* smaller one
 font-family: 'Roboto Condensed', sans-serif;
@@ -94,8 +94,10 @@ button {
 }
 .signupLoginLink {
   text-decoration: none;
-  padding: 0%;
-  margin-left: 100px;
+  text-align: center;
+  padding-top: 5%;
+  /* margin-left: 180px; */
+  /* margin: auto; */
   color: white;
 }
 /* // */
@@ -120,7 +122,7 @@ input {
 /* Details Styles Below */
 
 .pinkBox {
-  background-color: #E9CCC5;
+  background-color: #e9ccc5;
   border-radius: 30px;
   margin: 5%;
   padding: 2%;
@@ -202,4 +204,3 @@ input {
   /* max-width: 20%;
   /* min-height: 10vh; */
 }
-
