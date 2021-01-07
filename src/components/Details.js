@@ -1,12 +1,11 @@
 import React from 'react'
-import { Link } from "react-router-dom";
-import Logo from './Logo';
 import '../style/index.css';
 
 const Details = () => {
 
     const fakeEvent = {
         id: Math.random(),
+        host: "Aszalea",
         eventName: "Lord Oh Rings",
         date: "January 20th, 2021",
         time: "5PM",
@@ -19,20 +18,10 @@ const Details = () => {
 
     return (
         <div>
-            <nav>
-                <Logo />
-                <div className="links">
-                    <Link to="Logout" className="link">
-                        Log Out
-                    </Link>
-                    <Link to="AddNew" className="link">
-                        Add New
-                    </Link>
-                </div>
-            </nav>
             <div className="pinkBox">
                 <h1 className="detailsEventName">{fakeEvent.eventName}</h1>
                 <div className="details">
+                    <p>{fakeEvent.host}</p>
                     <p>{fakeEvent.date}</p>
                     <p>{fakeEvent.time}</p>
                     <p>{fakeEvent.location}</p>
