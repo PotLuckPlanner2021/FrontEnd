@@ -36,7 +36,7 @@ const Login = () => {
 
   useEffect(() => {
     schema.isValid(form).then((valid) => setDisabled(!valid));
-  }, [form]);
+  }, [form, schema]);
 
   //Validation Errors
   const setFormErrors = (name, value) => {
