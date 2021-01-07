@@ -67,7 +67,6 @@ const Login = () => {
       )
       .then((res) => {
         localStorage.setItem("token", res.data.access_token);
-        console.log(res);
         setForm({
           username: "",
           password: "",
