@@ -3,8 +3,8 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Items from "./Items";
 import PartyForm from "./components/PartyForm";
-import ProtectedRoute from './utils/ProtectedRoute';
-import ProtectedPage from './components/ProtectedPage';
+import ProtectedRoute from "./utils/ProtectedRoute";
+import ProtectedPage from "./components/ProtectedPage";
 // import EventList from './components/EventList';
 import { Route, Switch } from "react-router-dom";
 
@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       {/* <EventList /> */}
       <Switch>
-        <ProtectedRoute exact path='/MyPotlucks' component={ProtectedPage} />
+        <ProtectedRoute exact path="/MyPotlucks" component={ProtectedPage} />
         <Route path="/Signup" component={Signup} />
         <Route path="/Login" component={Login} />
         <Route path="/Items" component={Items} />
