@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Rubik+Mono+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
 /*Main font*/
 /* smaller one
 font-family: 'Roboto Condensed', sans-serif;
@@ -115,6 +116,71 @@ input {
   font-size: 3rem;
 }
 
+/* Details Styles Below */
+
+.pinkBox {
+  background-color: #E9CCC5;
+  border-radius: 30px;
+  margin: 5%;
+  padding: 2%;
+  width: 40%;
+}
+
+.pinkBox p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.pinkBox h2 {
+  font-family: "Rubik Mono One", serif;
+}
+
+.detailsEventName {
+  color: #fff;
+  font-family: "Rubik Mono One", serif;
+  text-align: center;
+  text-decoration: underline;
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+.details {
+  display: flex;
+  flex-direction: row;
+}
+
+.details p {
+  margin: auto;
+}
+
+.theme {
+  text-align: center;
+}
+
+.edit {
+  text-align: center;
+  margin: auto;
+}
+
+.pinkBox input {
+  width: 5%;
+  box-shadow: none;
+  height: 20px;
+  margin: 0;
+}
+
+.pinkBox label {
+  margin: 2%;
+  font-weight: bold;
+}
+
+.edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto 0 auto;
+}
+
 /* Event List Styles */
 .eventCard {
   display: flex;
@@ -135,3 +201,4 @@ input {
   /* max-width: 20%;
   /* min-height: 10vh; */
 }
+
