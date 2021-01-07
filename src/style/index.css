@@ -114,3 +114,24 @@ input {
 .signupLoginHeader {
   font-size: 3rem;
 }
+
+/* Event List Styles */
+.eventCard {
+  display: flex;
+  flex-flow: row wrap;
+  /* color:red; */
+  text-decoration: none;
+  border: 1px solid red;
+  align-items: center;
+  max-width: 40%;
+  justify-content: space-between;
+}
+.eventImage {
+  object-fit: cover;
+  image-rendering: pixelated;
+  width: 440px;
+  height:160px;
+  
+  /* max-width: 20%;
+  /* min-height: 10vh; */
+}
