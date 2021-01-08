@@ -30,7 +30,7 @@ const Details = (props) => {
                 <h2>What We Need</h2>
                 {potluckInfo.items.map(event => {
                     return <div className="whatWeNeed">
-                        <input name="items" type="radio" value={event.itemname} />
+                        <input disabled='true' name="items" type="radio" value={event.itemname} />
                         <label>
                             {event.itemname}
                         </label>
@@ -40,7 +40,7 @@ const Details = (props) => {
                 <h2>Who's Coming</h2>
                 {potluckInfo.guests.map(event => {
                     return <div className="whosComing">
-                        <input name="guests" type="radio" value={event.guestname} />
+                        <input disabled='true' name="guests" type="radio" value={event.guestname} />
                         <label>
                             {event.guestname}
                         </label>

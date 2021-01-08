@@ -2,6 +2,7 @@ import React, {  useEffect } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import EventList from './EventList';
 import Details from './Details';
+import Items from './ItemsTest';
 import PartyForm from './PartyFormTest';
 import Logo from './Logo';
 import { Route, Link, useHistory, useParams, useRouteMatch } from 'react-router-dom';
@@ -41,6 +42,9 @@ const ProtectedPage = ({ userInfo, error, getUserInfo }) => {
       <nav>
         <Logo />
         <div className="links">
+          <Link to='/' className="link">
+            Home
+          </Link>
           <Link onClick={logout} className="link">
             Logout
           </Link>
@@ -56,6 +60,10 @@ const ProtectedPage = ({ userInfo, error, getUserInfo }) => {
         <Route 
           path={`/MyPotlucks/Details/:potluckid`}
           render={props => <Details {...props} potlucks={userInfo.potlucks}/>}
+        />
+        <Route 
+          path={`/MyPotlucks/Items/:potluckid`}
+          render={props => <Items {...props} userInfo={userInfo}/>}
         />
         </section>
     </div>

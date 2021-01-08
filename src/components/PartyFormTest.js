@@ -164,27 +164,7 @@ const PartyForm = () => {
     
 
     return (
-        <div>
-            <nav>
-                <Logo />
-                <div className="links">
-                <Link to="/" className="link">
-                    Home
-                </Link>
-                <Link to="Login" className="link">
-                    Login
-                </Link>
-                <Link to="Signup" className="link">
-                    Signup
-                </Link>
-                <Link to="Items" className="link">
-                    Items
-                </Link>
-                </div>
-            </nav>
             <section className="centering">
-                <img src={Image} className="logins" alt="fruits"></img>
-
                 <section className="partyForm">
                     <h2 className="partyFormHeader">Add New Party</h2>
                     <form 
@@ -247,9 +227,8 @@ const PartyForm = () => {
                 </Link>
                 </section>
             </section>
-        </div>
     )
 }
 
- 
- export default PartyForm
+
+export default PartyForm

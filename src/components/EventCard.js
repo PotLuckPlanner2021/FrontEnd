@@ -23,7 +23,7 @@ const EventCard = (props) => {
         render={props => <Details {...props} event={event}/>}
       /> */}
       <Link to={`/MyPotlucks/Details/${event.potluckid}`} className='eventCard'>
-          <img src={event.imgurl} alt='New Event' className='eventImage' />
+          <img src={event.imgurl ? event.imgurl : 'https://source.unsplash.com/600x400/?potluck'} alt='New Event' className='eventImage' />
           <h3>{event.name}</h3>
           <h4>Hosted By: {event.host}</h4>
           <p>Date: {event.date}</p>
