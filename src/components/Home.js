@@ -12,6 +12,12 @@ const Home = () => {
       <nav>
         <Logo />
         <div className="links">
+          {
+            localStorage.getItem('token') && 
+            <Link to="MyPotlucks" className="link">
+            My Potlucks
+            </Link> 
+          }
           <Link to="Login" className="link">
             Login
           </Link>
@@ -21,7 +27,7 @@ const Home = () => {
           <Link to="ItemsTest" className="link">
             Items
           </Link>
-          <Link to="PArtyFormTest" className="link">
+          <Link to="PartyFormTest" className="link">
             PartyFormTest
           </Link>
         </div>

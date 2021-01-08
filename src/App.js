@@ -12,7 +12,6 @@ function App() {
     <div className="App">
         <Route path="/PartyFormTest" component={PartyForm}/>
         <Route path="/ItemsTest" component={ItemsTest} />
-        <Route path="/NewPotluck" component={PartyForm} />
         <ProtectedRoute path="/MyPotlucks" component={ProtectedPage} />
         <Route path="/Signup" component={Signup} />
         <Route path="/Login" component={Login} />
