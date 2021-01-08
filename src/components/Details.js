@@ -5,16 +5,11 @@ import { useParams } from 'react-router-dom';
 
 const Details = (props) => {
     const { potluckid } = useParams();
-    console.log('detail params', useParams())
-    console.log('In details', props);
-    console.log('in the details, and here is the id:', potluckid)
 
     const potluckInfo = props.potlucks.find(potluck => {
         // eslint-disable-next-line eqeqeq
         return potluck.potluckid == potluckid;
     })
-
-    console.log('here is the found info:', potluckInfo)
 
     return (
         <div>

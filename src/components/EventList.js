@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 
 const EventList = (props) => {
 
-  console.log('In EventList', props)
   return (
     <div>
       <h2>My Potlucks</h2>
