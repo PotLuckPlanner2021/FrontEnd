@@ -8,17 +8,6 @@ const Details = (props) => {
     console.log('detail params', useParams())
     console.log('In details', props);
     console.log('in the details, and here is the id:', potluckid)
-    // const fakeEvent = {
-    //     id: Math.random(),
-    //     host: "Aszalea",
-    //     eventName: "Lord Oh Rings",
-    //     date: "January 20th, 2021",
-    //     time: "5PM",
-    //     location: "@Zoom",
-    //     theme: "Lord of the Rings",
-    //     items: ["The one to rull them onion rings", "A pint of brews", "Lembas Bread", "Afternoon Tea", "Second Breakfast", "Dragon Meat"],
-    //     guests: ["Bhawnish", "Mark", "Justin", "Jay", "Michael", "Edd", "Jennifer", "Julia", "Claudiu", "Robert", "Aszalea", "Nadeem"]
-    // }
 
     const potluckInfo = props.potlucks.find(potluck => {
         // eslint-disable-next-line eqeqeq

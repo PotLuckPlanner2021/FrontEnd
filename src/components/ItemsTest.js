@@ -1,16 +1,19 @@
 // eslint-disable-next-line 
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { Link } from 'react-router-dom'
 
 import "../style/index.css"
 import Logo from "../components/Logo";
 // import homeImage from "./assets/HomePage.png"
 import Image from "../assets/potluck5.jpg";
-import { partyName, date, time, location, host, theme, guests, theFood } from "./PArtyFormTest"
+import  axios from "axios"
 
 
 
 function Items() {
+    axios
+        .get("http://pluckplanner.herokuapp.com/potlucks/potlucks")
+        .then((res) => {console.log(res.data)})
 
     const [ bringing1, setBringing1 ] = useState(false)
     const [ bringing2, setBringing2 ] = useState(false)
