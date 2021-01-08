@@ -8,119 +8,120 @@ const PartyForm = () => {
     
    
     
-    const [ eventName, setPartyName ] = useState({
-                                                    eventName: "",
-                                                })
+    const [ name, setName ] = useState("")
 
-    const [ date, setDate ] = useState({
-                                            date: "",
-                                        })
+    const [ date, setDate ] = useState( "")
 
-    const [ time, setTime ] = useState({
-                                            time: "",
-                                        })
+    const [ time, setTime ] = useState("")
 
-    const [ location, setLocation ] = useState({
-                                                    location: "",
-                                                })
+    const [ location, setLocation ] = useState("")
     
-    const [ host, setHost ] = useState({
-                                            host: "",
-                                        })
+    const [ host, setHost ] = useState("")
 
-    const [ theme, setTheme ] = useState({
-                                            theme: "",
-                                        })
+    const [ theme, setTheme ] = useState("")
 
-    const [ guests, setGuests ] = useState([])
+    const [ guests, setGuests ] = useState("")
 
-    const [ items, setItems ] = useState([])
+    const [ items, setItems ] = useState("")
+
+    const [ imgurl, setImgUrl ] = useState("")
         
 
     const addPartyName = (partyData) => {
-        const { value, name } = partyData.target
+        const { value } = partyData.target
         const usedVal = value
-        setPartyName({ [name]: usedVal }) 
+        setName(usedVal) 
     }
 
     const addDate = (partyData) => {
-        const { value, name } = partyData.target
+        const { value } = partyData.target
         const usedVal = value
-        setDate({ [name]: usedVal }) 
+        setDate(usedVal) 
     }
 
     const addTime = (partyData) => {
-        const { value, name } = partyData.target
+        const { value } = partyData.target
         const usedVal = value
-        setTime({ [name]: usedVal }) 
+        setTime(usedVal) 
     }
 
     const addLocation = (partyData) => {
-        const { value, name } = partyData.target
+        const { value } = partyData.target
         const usedVal = value
-        setLocation({ [name]: usedVal }) 
+        setLocation(usedVal) 
     }
 
     const addHost = (partyData) => {
-        const { value, name } = partyData.target
+        const { value } = partyData.target
         const usedVal = value
-        setHost({ [name]: usedVal }) 
+        setHost(usedVal) 
     }
 
     const addTheme = (partyData) => {
-        const { value, name } = partyData.target
+        const { value } = partyData.target
         const usedVal = value
-        setTheme({ [name]: usedVal }) 
+        setTheme(usedVal) 
     }
 
     const addGuests = (partyData) => {
+        // partyData.preventDefault()
+
         const { value } = partyData.target
         const usedVal = value
-        setGuests({ ...guests, usedVal} ) 
+        setGuests(usedVal) 
     }
 
-    const food = document.querySelector(".food")
-    const people = document.querySelector(".guests")
+    const addImgUrl = (partyData) => {
+        const { value } = partyData.target
+        const usedVal = value
+        setImgUrl(usedVal)
+    }
+
+    // const food = document.querySelector(".food")
+    // const people = document.querySelector(".guests")
 
     const addFood = (partyData) => {
-        partyData.preventDefault()
-        
-        const newItems = document.createElement("input")
-        newItems.placeholder = "Food Needed"
-        newItems.type = "text"
-        newItems.value = `${items.items}`
-
-        food.append(newItems)
-
+       
         const { value } = partyData.target
         const usedVal = value
-        setItems([{ ...items, usedVal }]) 
+        setItems(usedVal) 
     }
 
-    function addPeople (event) {
-        event.preventDefault()
+    
+
+    // function createFood (event) {
+    //     event.preventDefault()
+
+    //     const newItems = document.createElement("input")
+    //     newItems.onChange={addFood}
+    //     newItems.placeholder = "Food Needed"
+    //     newItems.type = "text"
+    //     newItems.value = `${items.items}`
+
+    //     food.append(newItems)
+    // }
+    // function createPeople (event) {
+    //     event.preventDefault()
         
-        const newPeople = document.createElement("input")
-        newPeople.classList = "Guest"
-        newPeople.placeholder = "Guests"
-        newPeople.type = "text"
+    //     const newPeople = document.createElement("input")
+    //         newPeople.onChange={addGuests}
+    //         newPeople.classList = "Guest"
+    //         newPeople.placeholder = "Guests"
+    //         newPeople.type = "text"
+    //         newPeople.value = `${guests.guests}`
 
-        people.append(newPeople)
-
-       
-        const { value, name } = newPeople.target
-        const usedVal = value
-        console.log(usedVal)
-        setGuests({...guests, [name]: usedVal })
-    }
+    //         people.append(newPeople)
+    //     }
     
 
     
     function addParty (event) {
         event.preventDefault()
-        
+
+        // addGuests(event)
+
         let userData = {
-                    eventName,
+                    name,
                     date,
                     time,
                     location,
@@ -128,22 +129,23 @@ const PartyForm = () => {
                     theme,
                     guests,
                     items,
+                    imgurl
                 }
-        axios
-        .post("http://pluckplanner.herokuapp.com/potlucks/{userID}/potlucks", {
-                date: date,
-                guests: guests,
-                host: host,
-                // imgurl: null,
-                items: items,
-                locations: location,
-                name: eventName,
-                // potluckid: null
-                theme: theme,
-                time: time,
+        // axios
+        // .post("http://pluckplanner.herokuapp.com/potlucks/{userID}/potlucks", {
+        //         date: date,
+        //         guests: guests,
+        //         host: host,
+        //         // imgurl: null,
+        //         items: items,
+        //         locations: location,
+        //         name: eventName,
+        //         // potluckid: null
+        //         theme: theme,
+        //         time: time,
                 
 
-        })
+        // })
         
         
             
@@ -171,60 +173,71 @@ const PartyForm = () => {
                         className="partyForm"
                     >
                         <input 
-                            value={eventName.eventName}
+                            onChange={addPartyName}
+                            value={name}
                             placeholder="Event Name" 
                             type="text">
                         </input>
                         <input 
-                            value={date.date}
+                            onChange={addDate}
+                            value={date}
                             placeholder="Date" 
                             type="text">
                         </input>
                         <input
-                            value={time.time}
+                            onChange={addTime}
+                            value={time}
                             placeholder="Time" 
                             type="text">
                         </input>
                         <input
-                            value={location.location}
+                            onChange={addLocation}
+                            value={location}
                             placeholder="Location" 
                             type="text">
                         </input>
                         <input
-                            value={host.host}
+                            onChange={addHost}
+                            value={host}
                             placeholder="Host" 
                             type="text">
                         </input>
                         <input 
-                            value={theme.theme}
+                            onChange={addTheme}
+                            value={theme}
                             placeholder="Theme" 
                             type="text">
                         </input>
                         <div className="guests">
                             <input 
-                                value={guests.guests}
-                                placeholder="Guests" 
+                                onChange={addGuests}
+                                value={guests}
+                                placeholder="Enter Guest Names Separated by a Comma" 
                                 type="text">
                             </input>
                         </div>
                         <div className="food">
                             <input 
-                                value={items.items} 
-                                placeholder="Food Needed" 
+                                onChange={addFood}
+                                value={items} 
+                                placeholder="Enter Food Names Separated by a Comma" 
                                 type="text">
                             </input>
+                            <input 
+                            onChange={addImgUrl}
+                            value={imgurl}
+                            placeholder="Image Url" 
+                            type="text">
+                        </input>
                         </div>
                         <button onClick={addParty}>
                             Add Completed Party
                         </button>
-                        <button onClick={addFood}>
+                        {/* <button onClick={createFood}>
                             Add Food
                         </button>
-                        <button onClick={addPeople}>Add People</button>
+                        <button onClick={createPeople}>Add People</button> */}
                     </form>
-                <Link to="Login" className="signupLoginLink">
-                    Have an account? Login!
-                </Link>
                 </section>
             </section>
     )
