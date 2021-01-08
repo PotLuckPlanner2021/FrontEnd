@@ -36,7 +36,7 @@ const Login = () => {
 
   useEffect(() => {
     schema.isValid(form).then((valid) => setDisabled(!valid));
-  }, [form]);
+  }, [form, schema]);
 
   //Validation Errors
   const setFormErrors = (name, value) => {
@@ -53,10 +53,9 @@ const Login = () => {
 
   const submit = (e) => {
     e.preventDefault();
-    //NEED END POINT
     axios
       .post(
-        "http://pluckplanner.herokuapp.com/login",
+        "https://pluckplanner.herokuapp.com/login",
         `grant_type=password&username=${form.username}&password=${form.password}`,
         {
           headers: {
@@ -67,7 +66,6 @@ const Login = () => {
       )
       .then((res) => {
         localStorage.setItem("token", res.data.access_token);
-        console.log(res);
         setForm({
           username: "",
           password: "",
@@ -90,12 +88,6 @@ const Login = () => {
           </Link>
           <Link to="Signup" className="link">
             Signup
-          </Link>
-          <Link to="Items" className="link">
-            Items
-          </Link>
-          <Link to="PartyForm" className="link">
-            PartyForm
           </Link>
         </div>
       </nav>

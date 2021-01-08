@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Image from "../assets/potluck5.jpg";
 import * as yup from "yup";
 import axios from "axios";
@@ -9,13 +9,13 @@ const Signup = () => {
   //  STATE
   const [signUp, setSignup] = useState({
     username: "",
-    fullName: "",
+    email: "",
     password: "",
     confirmPassword: "",
   });
   const [errors, setErrors] = useState({
     username: "",
-    fullName: "",
+    email: "",
     password: "",
     confirmPassword: "",
   });
@@ -36,10 +36,10 @@ const Signup = () => {
       .string()
       .required("Username is required")
       .min(4, "Username needs to be at least 4 characters long"),
-    fullName: yup
+    email: yup
       .string()
-      .required("Name is required")
-      .min(4, "Name must be more than 4 characters long"),
+      .required("Email is required")
+      .min(4, "Email must be more than 4 characters long"),
     password: yup
       .string()
       .required("Password is required")
@@ -52,7 +52,7 @@ const Signup = () => {
 
   useEffect(() => {
     schema.isValid(signUp).then((valid) => setDisabled(!valid));
-  }, [signUp]);
+  }, [signUp, schema]);
 
   //Validation Errors
   const setFormErrors = (name, value) => {
@@ -64,18 +64,39 @@ const Signup = () => {
   };
 
   //SUBMIT
+  const { push } = useHistory();
+
+  const dataToPost = {
+    "username": signUp.username.trim(),
+    "password": signUp.password.trim(),
+    "primaryemail": signUp.email.trim(),
+    "roles": [
+      {
+        "role": {
+          "roleid": 1
+        }
+      }, 
+      {
+        "role": {
+          "roleid": 2
+        }
+      }
+    ]
+  };
+
   const submit = (e) => {
     e.preventDefault();
-    //NEED END POINT
     axios
-      .post("#")
-      .then((res) => {
+      .post("https://pluckplanner.herokuapp.com/users/user", dataToPost)
+      .then(() => {
+        console.log('Success making an account')
         setSignup({
           username: "",
-          fullName: "",
+          email: "",
           password: "",
           confirmPassword: "",
         });
+        push('/Login');
       })
       .catch((err) => {
         console.error(err, "error");
@@ -94,12 +115,6 @@ const Signup = () => {
           <Link to="Login" className="link">
             Login
           </Link>
-          <Link to="Items" className="link">
-            Items
-          </Link>
-          <Link to="PartyForm" className="link">
-            PartyForm
-          </Link>
         </div>
       </nav>
       <section className="centering">
@@ -117,13 +132,13 @@ const Signup = () => {
               type="text"
             ></input>
             <br />
-            <div>{errors.fullName}</div>
+            <div>{errors.email}</div>
             <input
               onChange={change}
-              value={signUp.fullName}
-              placeholder="Full Name"
-              name="fullName"
-              type="text"
+              value={signUp.email}
+              placeholder="Email Address"
+              name="email"
+              type="email"
             ></input>
             <br />
 

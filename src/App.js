@@ -5,22 +5,18 @@ import Items from "./components/ItemsTest";
 import PartyForm from "./components/PArtyFormTest";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import ProtectedPage from "./components/ProtectedPage";
-// import EventList from './components/EventList';
-import { Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      {/* <EventList /> */}
-      <Switch>
-        <ProtectedRoute exact path="/MyPotlucks" component={ProtectedPage} />
         <Route path="/PartyFormTest" component={PartyForm}/>
-        <Route path="/Signup" component={Signup} />
-        <Route path="/Login" component={Login} />
         <Route path="/ItemsTest" component={Items} />
         <Route path="/NewPotluck" component={PartyForm} />
-        <Route path="/" component={Home} />
-      </Switch>
+        <ProtectedRoute path="/MyPotlucks" component={ProtectedPage} />
+        <Route path="/Signup" component={Signup} />
+        <Route path="/Login" component={Login} />
+        <Route exact path="/" component={Home} />
     </div>
   );
 }

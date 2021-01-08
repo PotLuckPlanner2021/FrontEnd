@@ -4,7 +4,7 @@ const axiosWithAuth = () => {
   const token = localStorage.getItem('token');
 
   return axios.create({
-    baseURL: 'http://pluckplanner.herokuapp.com/',
+    baseURL: 'https://pluckplanner.herokuapp.com/',
     headers: {
       Authorization: `Bearer ${token}`
     }
