@@ -55,7 +55,7 @@ const Login = () => {
     e.preventDefault();
     axios
       .post(
-        "http://pluckplanner.herokuapp.com/login",
+        "https://pluckplanner.herokuapp.com/login",
         `grant_type=password&username=${form.username}&password=${form.password}`,
         {
           headers: {

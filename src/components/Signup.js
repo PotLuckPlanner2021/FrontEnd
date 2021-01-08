@@ -87,7 +87,7 @@ const Signup = () => {
   const submit = (e) => {
     e.preventDefault();
     axios
-      .post("http://pluckplanner.herokuapp.com/users/user", dataToPost)
+      .post("https://pluckplanner.herokuapp.com/users/user", dataToPost)
       .then(() => {
         console.log('Success making an account')
         setSignup({

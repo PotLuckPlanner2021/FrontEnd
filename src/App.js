@@ -1,12 +1,12 @@
 import Home from "./components/Home";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
-import Items from "./Items";
+// import Items from "./Items";
 // import PartyForm from "./components/PartyForm";
-import Details from './components/Details'
+// import Details from './components/Details'
 import ProtectedRoute from "./utils/ProtectedRoute";
 import ProtectedPage from "./components/ProtectedPage";
-import { Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 function App() {
   return (
