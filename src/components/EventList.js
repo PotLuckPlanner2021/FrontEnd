@@ -6,11 +6,12 @@ import { connect } from 'react-redux';
 const EventList = (props) => {
 
   console.log('In EventList', props)
-  if (props.isFetching || props.userInfo === {}) {
-    return (
-      <h1>Fetching User Data...</h1>
-    )
-  }
+  // if (props.isFetching || props.userInfo === {}) {
+  // if (!props.userInfo) {
+  //   return (
+  //     <h1>Fetching User Data...</h1>
+  //   )
+  // }
   return (
     <div>
       <h2>My Potlucks</h2>

@@ -12,14 +12,19 @@ import { getUserInfo } from '../actions/userInfo';
 
 const ProtectedPage = ({ userInfo, isFetching, error, getUserInfo }) => {
   // const [userInfo, setUserInfo] = useState();
+  const { push } = useHistory();
+
   useEffect(() => {
     getUserInfo();
-  }, []);
+  }, [getUserInfo]);
+
+  if (!userInfo) {
+    return (
+      <h1>Fetching User Data...</h1>
+    )
+  }
 
   
-
-  
-  const { push } = useHistory();
 
   const logout = () => {
     axiosWithAuth()
@@ -44,12 +49,9 @@ const ProtectedPage = ({ userInfo, isFetching, error, getUserInfo }) => {
   
 
   if (error) {
-    return <h2>Error! {error}</h2>
+    return <h2>Error! We've Got a Problem: {error}</h2>
   }
 
-  if (isFetching){
-    return <h2>HELLO Loading...</h2>
-  }
   // if (userInfo === undefined || userInfo === {}) {
   //   return (
   //     <h1>Loading...</h1>
@@ -67,7 +69,7 @@ const ProtectedPage = ({ userInfo, isFetching, error, getUserInfo }) => {
         </div>
       </nav>
       <EventList /* userInfo={userInfo}  *//>
-      {/* <Route 
+      <Route 
         exact
         path='/MyPotlucks'
         component={PartyForm}
@@ -76,7 +78,7 @@ const ProtectedPage = ({ userInfo, isFetching, error, getUserInfo }) => {
         // exact
         path={`/MyPotlucks/Details`}
         component={Details}
-      /> */}
+      />
     </div>
   )
 }

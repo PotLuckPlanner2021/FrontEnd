@@ -1,7 +1,7 @@
 import { FETCHING_USER_INFO_FAIL, FETCHING_USER_INFO_SUCCESS, FETCHING_USER_INFO_START } from '../actions/userInfo';
 
 const initialState = {
-  userInfo: {},
+  userInfo: undefined,
   isFetching: false,
   error: ''
 };
