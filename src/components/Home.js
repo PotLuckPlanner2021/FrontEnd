@@ -4,6 +4,7 @@ import homeImage from "../assets/HomePage.png";
 // import PartyFormTest from "./PArtyFormTest"
 // import Items from "../Items"
 import { Link } from "react-router-dom";
+import '../style/index.css';
 
 const Home = () => {
   return (
