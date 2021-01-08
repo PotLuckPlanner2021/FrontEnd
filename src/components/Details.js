@@ -21,6 +21,7 @@ const Details = (props) => {
     }
 
     const potluckInfo = props.potlucks.find(potluck => {
+        // eslint-disable-next-line eqeqeq
         return potluck.potluckid == potluckid;
     })
 

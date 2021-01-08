@@ -188,7 +188,7 @@ input {
   flex-flow: row wrap;
   /* color:red; */
   text-decoration: none;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   align-items: center;
   /* width: 40%; */
   justify-content: space-between;

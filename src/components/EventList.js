@@ -10,7 +10,7 @@ const EventList = (props) => {
     <div>
       <h2>My Potlucks</h2>
       <div className='eventList'>
-        <Link to='/MyPotLucks/' className='eventCard'>
+        <Link to='/MyPotlucks/' className='eventCard'>
           <img src='https://source.unsplash.com/600x400/?potluck' alt='New Event' className='eventImage' />
           <h3>Add New Potluck</h3>
         </Link>
