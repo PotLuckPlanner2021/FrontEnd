@@ -1,7 +1,7 @@
 import Home from "./components/Home";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
-import Items from "./components/ItemsTest";
+import ItemsTest from "./components/ItemsTest";
 import PartyForm from "./components/PArtyFormTest";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import ProtectedPage from "./components/ProtectedPage";
@@ -17,7 +17,7 @@ function App() {
         <Route path="/PartyFormTest" component={PartyForm}/>
         <Route path="/Signup" component={Signup} />
         <Route path="/Login" component={Login} />
-        <Route path="/ItemsTest" component={Items} />
+        <Route path="/ItemsTest" component={ItemsTest} />
         <Route path="/NewPotluck" component={PartyForm} />
         <Route path="/" component={Home} />
       </Switch>

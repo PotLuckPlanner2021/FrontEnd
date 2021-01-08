@@ -6,6 +6,8 @@ import axios from "axios"
 
 const PartyForm = () => {
     
+   
+    
     const [ eventName, setPartyName ] = useState({
                                                     eventName: "",
                                                 })
@@ -30,13 +32,9 @@ const PartyForm = () => {
                                             theme: "",
                                         })
 
-    const [ guests, setGuests ] = useState({
-                                            guests: "",
-                                            })
+    const [ guests, setGuests ] = useState([])
 
-    const [ items, setItems ] = useState({
-                                            items: "",
-                                        })
+    const [ items, setItems ] = useState([])
         
 
     const addPartyName = (partyData) => {
@@ -76,30 +74,27 @@ const PartyForm = () => {
     }
 
     const addGuests = (partyData) => {
-        const { value, name } = partyData.target
+        const { value } = partyData.target
         const usedVal = value
-        setGuests({ [name]: usedVal }) 
+        setGuests({ ...guests, usedVal} ) 
     }
 
-    const addFood = (partyData) => {
-        const { value, name } = partyData.target
-        const usedVal = value
-        setItems({ [name]: usedVal }) 
-    }
-
-    
     const food = document.querySelector(".food")
     const people = document.querySelector(".guests")
 
-    function addNewFood (event) {
-        event.preventDefault()
+    const addFood = (partyData) => {
+        partyData.preventDefault()
         
         const newItems = document.createElement("input")
-        newItems.classList = "Food"
         newItems.placeholder = "Food Needed"
         newItems.type = "text"
+        newItems.value = `${items.items}`
 
-        items.append(newItems)
+        food.append(newItems)
+
+        const { value } = partyData.target
+        const usedVal = value
+        setItems([{ ...items, usedVal }]) 
     }
 
     function addPeople (event) {
@@ -112,54 +107,61 @@ const PartyForm = () => {
 
         people.append(newPeople)
 
-        
-        // const addGuests = (newPeople) => {
-        //     console.log(newPeople)
-        //     const { value, name } = newPeople.target
-        //     const usedVal = value
-        //     console.log(usedVal)
-        //     setGuests({...guests, [name]: usedVal })
-        // }
-
-        // addGuests()
-        
-        
-        // console.log(guests)
-        
+       
+        const { value, name } = newPeople.target
+        const usedVal = value
+        console.log(usedVal)
+        setGuests({...guests, [name]: usedVal })
     }
+    
 
     
     function addParty (event) {
         event.preventDefault()
-
-        const submitParty = (event) => {
-            event.preventDefault();
-
-            const data = {
-                eventName,
-                date,
-                time,
-                location,
-                host,
-                theme,
-                guests,
-                items,
-            }
-
-            axios
-              .post("#")
-              .then((res) => {
+        
+        let userData = {
+                    eventName,
+                    date,
+                    time,
+                    location,
+                    host,
+                    theme,
+                    guests,
+                    items,
+                }
+        axios
+        .post("http://pluckplanner.herokuapp.com/potlucks/{userID}/potlucks", {
+                date: date,
+                guests: guests,
+                host: host,
+                // imgurl: null,
+                items: items,
+                locations: location,
+                name: eventName,
+                // potluckid: null
+                theme: theme,
+                time: time,
                 
-                })
-              })
-              .catch((err) => {
-                debugger
-              })
-          }
+
+        })
         
-        console.log(data)
         
+            
+            console.log(userData)
     }
+        //     axios
+        //       .post("#")
+        //       .then((res) => {
+        //         null
+        //         })
+        //       .catch((err) => {
+        //         debugger
+        //       })
+        //   }
+        
+        // console.log(data)
+        
+    
 
     return (
         <div>
@@ -189,44 +191,37 @@ const PartyForm = () => {
                         className="partyForm"
                     >
                         <input 
-                            onChange={addPartyName}
                             value={eventName.eventName}
                             placeholder="Event Name" 
                             type="text">
                         </input>
                         <input 
-                            onChange={addDate}
                             value={date.date}
                             placeholder="Date" 
                             type="text">
                         </input>
-                        <input 
-                            onChange={addTime}
+                        <input
                             value={time.time}
                             placeholder="Time" 
                             type="text">
                         </input>
-                        <input 
-                            onChange={addLocation}
+                        <input
                             value={location.location}
                             placeholder="Location" 
                             type="text">
                         </input>
-                        <input 
-                            onChange={addHost}
+                        <input
                             value={host.host}
                             placeholder="Host" 
                             type="text">
                         </input>
                         <input 
-                            onChange={addTheme}
                             value={theme.theme}
                             placeholder="Theme" 
                             type="text">
                         </input>
                         <div className="guests">
                             <input 
-                                onChange={addGuests}
                                 value={guests.guests}
                                 placeholder="Guests" 
                                 type="text">
@@ -234,8 +229,7 @@ const PartyForm = () => {
                         </div>
                         <div className="food">
                             <input 
-                                onChange={addFood}
-                                value={items.food} 
+                                value={items.items} 
                                 placeholder="Food Needed" 
                                 type="text">
                             </input>
@@ -254,9 +248,8 @@ const PartyForm = () => {
                 </section>
             </section>
         </div>
-    );
-};
+    )
+}
 
-// export 
-//  { partyName, date, time, location, host, theme, guests, theFood }  
+ 
  export default PartyForm

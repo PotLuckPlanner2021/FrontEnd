@@ -3,6 +3,8 @@ import '../style/index.css';
 
 const Details = () => {
 
+    const { userData } = props
+    console.log(props.userData)
     const fakeEvent = {
         id: Math.random(),
         host: "Aszalea",
