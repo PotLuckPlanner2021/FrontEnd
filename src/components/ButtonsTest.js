@@ -22,5 +22,5 @@ const Buttons = () => {
         item8: bringing8,
         item9: bringing9,
         }
-  }
+  }//
   export default Buttons
