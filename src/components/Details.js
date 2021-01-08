@@ -1,8 +1,8 @@
 import React from 'react'
 import '../style/index.css';
 
-const Details = () => {
-
+const Details = (props) => {
+    console.log('In details', props);
     const fakeEvent = {
         id: Math.random(),
         host: "Aszalea",

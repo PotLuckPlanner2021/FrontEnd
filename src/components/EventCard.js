@@ -1,22 +1,36 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import newEventImage from '../assets/potluck5.jpg';
+import { Link, Route } from 'react-router-dom';
+import Details from './Details'
 
 const EventCard = (props) => {
-  
-  if (props === {}) {
-    return (
-      <h1>Loading...</h1>
-    )
-  }
+  const { event } = props;
+  console.log('In EventCard', props)
+  // if (props === {}) {
+  //   return (
+  //     <h1>Loading...</h1>
+  //   )
+  // }
+
+  // const potluck = props.potlucks.find(
+  //   thing => `${thing.potluckid}` === event.match.params.potluckid
+  // );
 
   return (
     <div>
-      <Link to='newPotluck' className='eventCard'>
-          <img src={newEventImage} alt='New Event' className='eventImage' />
-          <h3>Add New Potluck</h3>
+      <Route 
+        // exact
+        path={`/MyPotlucks/Details/:potluckid`}
+        render={props => <Details {...props} event={event}/>}
+      />
+      <Link to={`/MyPotlucks/Details/${event.potluckid}`} className='eventCard'>
+          <img src={event.imgurl} alt='New Event' className='eventImage' />
+          <h3>{event.name}</h3>
+          <h4>Hosted By: {event.host}</h4>
+          <p>Date: {event.date}</p>
+          <p>Time: {event.time}</p>
+          <p>Location: {event.location}</p>
+
       </Link>
-      <h4>Test</h4>
     </div>
   )
 };

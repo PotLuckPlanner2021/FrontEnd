@@ -4,12 +4,17 @@ import EventList from './EventList';
 import Details from './Details';
 import PartyForm from './PartyForm';
 import Logo from './Logo';
-import { Link, useHistory } from 'react-router-dom';
+import { Route, Link, useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getUserInfo } from '../actions/userInfo';
 
 
 
-const ProtectedPage = () => {
-  const [userInfo, setUserInfo] = useState();
+const ProtectedPage = ({ userInfo, isFetching, error, getUserInfo }) => {
+  // const [userInfo, setUserInfo] = useState();
+  useEffect(() => {
+    getUserInfo();
+  }, []);
   
   const { push } = useHistory();
 
@@ -22,21 +27,18 @@ const ProtectedPage = () => {
       })
   }
 
-  const getUserData = () => {
-    axiosWithAuth() 
-      .get('/users/userinfo')
-      .then(res => {
-        setUserInfo(res.data);
-        console.log('Look at my DATA', res.data.potlucks)
-      })
-      .catch(err => {
-        console.error('OMG NOO', err.response);
-      })
-  }
+  // const getUserData = () => {
+  //   axiosWithAuth() 
+  //     .get('/users/userinfo')
+  //     .then(res => {
+  //       setUserInfo(res.data);
+  //       console.log('Look at my userInfo', res.data.potlucks)
+  //     })
+  //     .catch(err => {
+  //       console.error('OMG NOO', err.response);
+  //     })
+  // }
   
-  useEffect(() => {
-    getUserData();
-  },[])
 
 
   if (userInfo === undefined || userInfo === {}) {
@@ -56,10 +58,26 @@ const ProtectedPage = () => {
         </div>
       </nav>
       <EventList userInfo={userInfo} />
-      <Details />
-      <PartyForm/>
+      <Route 
+        exact
+        path='/MyPotlucks'
+        component={PartyForm}
+      />
+      <Route 
+        // exact
+        path={`/MyPotlucks/Details`}
+        component={Details}
+      />
     </div>
   )
 }
 
-export default ProtectedPage;
+const mapStateToProps = state => {
+  return {
+    userInfo: state.userInfo,
+    isFetching: state.isFetching,
+    error: state.error
+  }
+};
+
+export default connect(mapStateToProps, {getUserInfo})(ProtectedPage);
