@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, {  useEffect } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import EventList from './EventList';
 import Details from './Details';
 import PartyForm from './PartyForm';
 import Logo from './Logo';
-import { Route, Link, useHistory } from 'react-router-dom';
+import { Route, Link, useHistory, useParams, useRouteMatch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUserInfo } from '../actions/userInfo';
 
 
 
-const ProtectedPage = ({ userInfo, isFetching, error, getUserInfo }) => {
-  // const [userInfo, setUserInfo] = useState();
+const ProtectedPage = ({ userInfo, error, getUserInfo }) => {
   const { push } = useHistory();
 
   useEffect(() => {
@@ -24,8 +23,6 @@ const ProtectedPage = ({ userInfo, isFetching, error, getUserInfo }) => {
     )
   }
 
-  
-
   const logout = () => {
     axiosWithAuth()
       .get('/logout')
@@ -35,28 +32,9 @@ const ProtectedPage = ({ userInfo, isFetching, error, getUserInfo }) => {
       })
   }
 
-  // const getUserData = () => {
-  //   axiosWithAuth() 
-  //     .get('/users/userinfo')
-  //     .then(res => {
-  //       setUserInfo(res.data);
-  //       console.log('Look at my userInfo', res.data.potlucks)
-  //     })
-  //     .catch(err => {
-  //       console.error('OMG NOO', err.response);
-  //     })
-  // }
-  
-
   if (error) {
     return <h2>Error! We've Got a Problem: {error}</h2>
   }
-
-  // if (userInfo === undefined || userInfo === {}) {
-  //   return (
-  //     <h1>Loading...</h1>
-  //   )
-  // }
 
   return (
     <div>
@@ -68,17 +46,18 @@ const ProtectedPage = ({ userInfo, isFetching, error, getUserInfo }) => {
           </Link>
         </div>
       </nav>
-      <EventList /* userInfo={userInfo}  *//>
-      <Route 
-        exact
-        path='/MyPotlucks'
-        component={PartyForm}
-      />
-      <Route 
-        // exact
-        path={`/MyPotlucks/Details`}
-        component={Details}
-      />
+      <section className='myPotlucksContainer' >
+        <EventList/>
+        <Route 
+          exact
+          path='/MyPotlucks'
+          component={PartyForm}
+          />
+        <Route 
+          path={`/MyPotlucks/Details/:potluckid`}
+          render={props => <Details {...props} potlucks={userInfo.potlucks}/>}
+        />
+        </section>
     </div>
   )
 }

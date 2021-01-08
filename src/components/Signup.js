@@ -115,12 +115,6 @@ const Signup = () => {
           <Link to="Login" className="link">
             Login
           </Link>
-          <Link to="Items" className="link">
-            Items
-          </Link>
-          <Link to="PartyForm" className="link">
-            PartyForm
-          </Link>
         </div>
       </nav>
       <section className="centering">

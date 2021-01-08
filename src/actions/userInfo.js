@@ -13,7 +13,7 @@ export const getUserInfo = () => {
       .get('/users/userinfo')
       .then(res => {
         dispatch({type:FETCHING_USER_INFO_SUCCESS, payload: res.data});
-        console.log('dispatch success userinfo', res.data)
+        // console.log('dispatch success userinfo', res.data)
       })
       .catch(err => {
         dispatch({type:FETCHING_USER_INFO_FAIL, payload: err.response})

@@ -11,13 +11,13 @@ import { Route, Switch } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-        <Route exact path="/" component={Home} />
-        <ProtectedRoute exact path="/MyPotlucks" component={ProtectedPage} />
+        <ProtectedRoute path="/MyPotlucks" component={ProtectedPage} />
         {/* <ProtectedRoute path='/MyPotlucks/NewPotLuck' component={PartyForm} /> */}
 
-        <Route path='/MyPotlucks/Details'  component={Details} />
+        {/* <Route path='/MyPotlucks/Details'  component={Details} /> */}
         <Route path="/Signup" component={Signup} />
         <Route path="/Login" component={Login} />
+        <Route exact path="/" component={Home} />
     </div>
   );
 }

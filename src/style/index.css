@@ -190,7 +190,7 @@ input {
   text-decoration: none;
   border: 1px solid red;
   align-items: center;
-  max-width: 40%;
+  /* width: 40%; */
   justify-content: space-between;
 }
 .eventImage {
@@ -198,8 +198,12 @@ input {
   image-rendering: pixelated;
   width: 440px;
   height: 160px;
+}
 
-  /* max-width: 20%;
-  /* min-height: 10vh; */
+/* Protected Page */
+
+.myPotlucksContainer {
+  display: flex;
+  flex-flow: row wrap;
 }
 
