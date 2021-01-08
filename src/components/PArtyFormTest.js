@@ -128,36 +128,35 @@ const PartyForm = () => {
         
     }
 
-    // const submit = (e) => {
-    //     e.preventDefault();
-    //     //NEED END POINT
-    //     axios
-    //       .post("#")
-    //       .then((res) => {
-    //         setSignup({
-    //           username: "",
-    //           fullName: "",
-    //           password: "",
-    //           confirmPassword: "",
-    //         });
-    //       })
-    //       .catch((err) => {
-    //         console.error(err, "error");
-    //       });
-    //   };
+    
     function addParty (event) {
         event.preventDefault()
+
+        const submitParty = (event) => {
+            event.preventDefault();
+
+            const data = {
+                eventName,
+                date,
+                time,
+                location,
+                host,
+                theme,
+                guests,
+                items,
+            }
+
+            axios
+              .post("#")
+              .then((res) => {
+                
+                })
+              })
+              .catch((err) => {
+                debugger
+              })
+          }
         
-        const data = {
-            eventName,
-            date,
-            time,
-            location,
-            host,
-            theme,
-            guests,
-            items,
-        }
         console.log(data)
         
     }
