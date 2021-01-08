@@ -15,6 +15,9 @@ const ProtectedPage = ({ userInfo, isFetching, error, getUserInfo }) => {
   useEffect(() => {
     getUserInfo();
   }, []);
+
+  
+
   
   const { push } = useHistory();
 
@@ -40,12 +43,18 @@ const ProtectedPage = ({ userInfo, isFetching, error, getUserInfo }) => {
   // }
   
 
-
-  if (userInfo === undefined || userInfo === {}) {
-    return (
-      <h1>Loading...</h1>
-    )
+  if (error) {
+    return <h2>Error! {error}</h2>
   }
+
+  if (isFetching){
+    return <h2>HELLO Loading...</h2>
+  }
+  // if (userInfo === undefined || userInfo === {}) {
+  //   return (
+  //     <h1>Loading...</h1>
+  //   )
+  // }
 
   return (
     <div>
@@ -57,8 +66,8 @@ const ProtectedPage = ({ userInfo, isFetching, error, getUserInfo }) => {
           </Link>
         </div>
       </nav>
-      <EventList userInfo={userInfo} />
-      <Route 
+      <EventList /* userInfo={userInfo}  *//>
+      {/* <Route 
         exact
         path='/MyPotlucks'
         component={PartyForm}
@@ -67,7 +76,7 @@ const ProtectedPage = ({ userInfo, isFetching, error, getUserInfo }) => {
         // exact
         path={`/MyPotlucks/Details`}
         component={Details}
-      />
+      /> */}
     </div>
   )
 }
