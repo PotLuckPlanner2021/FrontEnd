@@ -2,7 +2,7 @@ import React, {  useEffect } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import EventList from './EventList';
 import Details from './Details';
-import PartyForm from './PartyForm';
+import PartyForm from './PartyFormTest';
 import Logo from './Logo';
 import { Route, Link, useHistory, useParams, useRouteMatch } from 'react-router-dom';
 import { connect } from 'react-redux';
