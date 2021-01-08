@@ -176,11 +176,11 @@ function Items() {
           </Link>
           </div>
         </nav>
-        
+        //
         <body>
           <div className="Items">
-            <h1>Lord Oh Rings</h1>
-            <p>Jan 20th, 2021</p>
+            <h1>{sevenatNamd}</h1>
+            <p>{date}</p>
             <p>5pm @ Zoom</p>
             <p>Our Theme is Lord of the Rings!</p>
             <section className="stuff-to-bring">
