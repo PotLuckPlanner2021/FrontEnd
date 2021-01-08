@@ -1,8 +1,9 @@
 import React, { useState, useEffect} from "react";
-import Logo from "./Logo";
-import { Link } from "react-router-dom";
-import Image from "../assets/potluck5.jpg";
-import axios from "axios"
+// import Logo from "./Logo";
+// import { Link } from "react-router-dom";
+// import Image from "../assets/potluck5.jpg";
+// import axios from "axios"
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 const PartyForm = () => {
     
@@ -27,6 +28,7 @@ const PartyForm = () => {
     const [ imgurl, setImgUrl ] = useState("")
         
 
+    
     const addPartyName = (partyData) => {
         const { value } = partyData.target
         const usedVal = value
@@ -113,44 +115,67 @@ const PartyForm = () => {
     //         people.append(newPeople)
     //     }
     
+    let userData = {
+        "name": name,
+        "date": date,
+        "time": time,
+        "location": location,
+        "host": host,
+        "theme": theme,
+        "guests": [{'guestname':guests}],
+        "items": [{'itemname':items}],
+        "imgurl": imgurl
+    }
+console.log(userData);
+    const submit = (e) => {
+        e.preventDefault();
+        axiosWithAuth()
+                .post('/potlucks/4/potlucks', userData)
+                .then((res) => {
+                    console.log('success!', res.data)
+                })
+                .catch(err => {
+                    console.log('NOOOO FAIL POSTING', err)
+                });
+            };
 
-    
-    function addParty (event) {
-        event.preventDefault()
 
-        // addGuests(event)
+    // function addParty (event) {
+    //     event.preventDefault()
 
-        let userData = {
-                    name,
-                    date,
-                    time,
-                    location,
-                    host,
-                    theme,
-                    guests,
-                    items,
-                    imgurl
-                }
-        // axios
-        // .post("http://pluckplanner.herokuapp.com/potlucks/{userID}/potlucks", {
-        //         date: date,
-        //         guests: guests,
-        //         host: host,
-        //         // imgurl: null,
-        //         items: items,
-        //         locations: location,
-        //         name: eventName,
-        //         // potluckid: null
-        //         theme: theme,
-        //         time: time,
+    //     // addGuests(event)
+
+    //     let userData = {
+    //                 name,
+    //                 date,
+    //                 time,
+    //                 location,
+    //                 host,
+    //                 theme,
+    //                 guests,
+    //                 items,
+    //                 imgurl
+    //             }
+    //     // axios
+    //     // .post("http://pluckplanner.herokuapp.com/potlucks/{userID}/potlucks", {
+    //     //         date: date,
+    //     //         guests: guests,
+    //     //         host: host,
+    //     //         // imgurl: null,
+    //     //         items: items,
+    //     //         locations: location,
+    //     //         name: eventName,
+    //     //         // potluckid: null
+    //     //         theme: theme,
+    //     //         time: time,
                 
 
-        // })
+    //     // })
         
         
             
-            console.log(userData)
-    }
+    //         console.log(userData)
+    // }
         //     axios
         //       .post("#")
         //       .then((res) => {
@@ -170,6 +195,7 @@ const PartyForm = () => {
                 <section className="partyForm">
                     <h2 className="partyFormHeader">Add New Party</h2>
                     <form 
+                        onSubmit={submit}
                         className="partyForm"
                     >
                         <input 
@@ -230,7 +256,7 @@ const PartyForm = () => {
                             type="text">
                         </input>
                         </div>
-                        <button onClick={addParty}>
+                        <button >
                             Add Completed Party
                         </button>
                         {/* <button onClick={createFood}>
