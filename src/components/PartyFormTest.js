@@ -128,7 +128,7 @@ const PartyForm = () => {
     }
 console.log(userData);
     const submit = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         axiosWithAuth()
                 .post('/potlucks/4/potlucks', userData)
                 .then((res) => {
